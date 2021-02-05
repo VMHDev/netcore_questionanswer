@@ -1,0 +1,13 @@
+﻿@{
+    ViewData["Title"] = "Error";
+}
+
+<div v-cloak class="container-fluid">
+    <page-not-found v-if="showmenuItem=='NotFound'"></page-not-found>
+    <page-forbidden v-if="showmenuItem=='Forbidden'"></page-forbidden>
+</div>
+
+<!-- Javascript -->
+@section Scripts {
+    <script src="~/dest/js/error.bundle.js" asp-append-version="true" type="text/javascript"></script>
+}
