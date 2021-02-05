@@ -1,27 +1,11 @@
 ﻿import Vue from 'vue';
-import draggable from 'vuedraggable';
-import axios from 'axios';
+import "@Views/app.js";
+import Home from '@Components/Home/Home.vue';
+Vue.component('Home', Home)
 
-document.addEventListener('DOMContentLoaded', function (event) {
- 
-    new Vue({
-        el: document.getElementById('view'),
-        mounted: function () {
+new Vue({
+    el: "#app",
+    created: function () {
 
-        },
-        components: {
-            draggable
-        },
-        watch: {
-
-        },
-        data() {
-            return {
-
-            };
-        },
-        methods: {
-
-        }
-    });
+    }
 });

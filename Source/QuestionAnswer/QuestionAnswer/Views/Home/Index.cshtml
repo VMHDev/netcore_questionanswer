@@ -1,8 +1,12 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home";
 }
-<div id="view" class="text-center">
-    <label>Hello World</label>
+
+<div v-cloak class="container-fluid">
+    <home></home>
 </div>
 
-<script src="~/dest/js/home.bundle.js" asp-append-version="true"></script>
+<!-- Javascript -->
+@section Scripts {
+    <script src="~/dest/js/index.bundle.js" asp-append-version="true" type="text/javascript"></script>
+}

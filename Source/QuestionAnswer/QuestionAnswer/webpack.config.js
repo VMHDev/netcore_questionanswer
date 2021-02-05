@@ -6,8 +6,11 @@ const webpack = require('webpack');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
+    mode: 'development',
     entry: {
-        home: './Views/Home/Index.cshtml.js',
+        index: './Views/Home/index.cshtml.js',
+        layout: './Views/layout.js',
+        error: './Views/Error/error.cshtml.js'
     },
     plugins: [
         new webpack.ProvidePlugin({
@@ -71,7 +74,10 @@ module.exports = {
     },
     resolve: {
         alias: {
-            vue: 'vue/dist/vue.js'
+            // VMH Note: Khai báo alias cho các folder, file project
+            vue: 'vue/dist/vue.js',
+            '@Views': path.resolve(__dirname, './Views'),
+            '@Components': path.resolve(__dirname, './Views/Components')
         },
         extensions: ['.js', '.vue']
     }
