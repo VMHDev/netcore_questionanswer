@@ -1,7 +1,12 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
+using System.Xml;
+using log4net;
+using log4net.Config;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -35,7 +40,7 @@ namespace QuestionAnswer
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("/");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
@@ -52,6 +57,23 @@ namespace QuestionAnswer
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            // Using logger
+            LoggerManager();
+        }
+
+        /// <summary>
+        /// Config Log4net
+        /// </summary>
+        public void LoggerManager()
+        {
+            XmlDocument log4netConfig = new XmlDocument();
+            using (var fs = File.OpenRead("log4net.config"))
+            {
+                log4netConfig.Load(fs);
+                var repo = LogManager.CreateRepository(Assembly.GetEntryAssembly(), typeof(log4net.Repository.Hierarchy.Hierarchy));
+                XmlConfigurator.Configure(repo, log4netConfig["log4net"]);
+            }
         }
     }
 }
