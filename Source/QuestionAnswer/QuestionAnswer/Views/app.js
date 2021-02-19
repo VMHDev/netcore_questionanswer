@@ -12,3 +12,5 @@ Vue.use(IconsPlugin)
 // Import user components
 import MainHeader from '@Components/Layouts/MainHeader.vue';
 Vue.component('main-header', MainHeader);
+import MainSidebarRight from '@Components/Layouts/MainSidebarRight.vue';
+Vue.component('main-sidebar-right', MainSidebarRight);

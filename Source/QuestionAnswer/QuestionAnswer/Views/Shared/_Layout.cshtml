@@ -14,7 +14,17 @@
 
         <div class="container qa-layout-content">
             <main role="main" class="pb-3">
-                @RenderBody()
+                <div class="row">
+                    <!-- Content Column -->
+                    <div class="col-lg-8">
+                        @RenderBody()
+                    </div>
+
+                    <!-- Sidebar Widgets Column -->
+                    <div class="col-md-4">
+                        <main-sidebar-right></main-sidebar-right>
+                    </div>
+                </div>
             </main>
         </div>
 
